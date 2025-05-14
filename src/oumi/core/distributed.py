@@ -15,6 +15,7 @@
 import functools
 import logging
 import os
+os.environ["CUDA_VISIBLE_DEVICES"]="0,1,2,3"
 import random
 from contextlib import contextmanager
 from datetime import timedelta
@@ -274,6 +275,8 @@ def init_distributed(
     timeout = (
         timedelta(minutes=timeout_minutes) if timeout_minutes is not None else None
     )
+    print(os.environ["CUDA_VISIBLE_DEVICES"])
+    print(f"YOU ARE LOOKING FOR: {device_rank_info.local_rank=}")
     torch.cuda.set_device(int(device_rank_info.local_rank))
     torch.distributed.init_process_group(
         backend=backend,
