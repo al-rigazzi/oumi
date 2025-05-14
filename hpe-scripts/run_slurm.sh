@@ -1,8 +1,8 @@
 #!/bin/bash
 #SBATCH -p allgriz
-#SBATCH --nodes=2
-#SBATCH --ntasks-per-node=4
-#SBATCH --gpus-per-task=1
+#SBATCH --nodes=4
+#SBATCH --ntasks-per-node=1
+#SBATCH --gpus-per-task=4
 #SBATCH --cpus-per-task=4
 #SBATCH --time=00:35:00
 #SBATCH --exclusive

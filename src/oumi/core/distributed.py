@@ -15,7 +15,6 @@
 import functools
 import logging
 import os
-os.environ["CUDA_VISIBLE_DEVICES"]="0,1,2,3"
 import random
 from contextlib import contextmanager
 from datetime import timedelta
