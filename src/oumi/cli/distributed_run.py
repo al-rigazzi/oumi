@@ -15,6 +15,7 @@
 import copy
 import enum
 import os
+os.environ["CUDA_VISIBLE_DEVICES"]="0,1,2,3"
 import sys
 import time
 from subprocess import Popen
@@ -176,6 +177,7 @@ def torchrun(
         ]
         cmds.extend(ctx.args)
 
+        _run_subprocess(["nvidia-cuda-mps-control", "-d"], rank=run_info.node_rank)
         _run_subprocess(cmds, rank=run_info.node_rank)
     except Exception:
         logger.exception(f"`torchrun` failed (Rank: {run_info.node_rank})!")
