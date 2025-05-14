@@ -40,7 +40,7 @@ training:
   dataloader_prefetch_factor: 32
 
   seed: 192847
-  use_deterministic: True
+  use_deterministic: False
 
   logging_steps: 5
   log_model_summary: False
@@ -49,7 +49,7 @@ training:
   include_performance_metrics: True
 
 fsdp:
-  enable_fsdp: true                         # Enable FSDP training
+  enable_fsdp: false                        # Enable FSDP training
   sharding_strategy: "FULL_SHARD"           # How to shard model
   cpu_offload: false                        # Offload to CPU
   mixed_precision: null                     # Mixed precision type
